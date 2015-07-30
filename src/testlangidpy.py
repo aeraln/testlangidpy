@@ -18,7 +18,25 @@ __author__ = "Impact"
 __date__ = "$30-jul-2015 12:13:01$"
 
 import langid
+import sys
+import codecs
 
-print langid.classify("This is a test")
+
+if (len(sys.argv) > 1):
+    name = sys.argv[1]
+else:
+    print "no parametros"
+
+if (name):
+    f = open(name,"r")    
+    
+    for line in f:        
+        text,lang = line.split(";")        
+        
+    
+    
+#lang,conf = langid.classify("This is a test")
+
+
 
 
