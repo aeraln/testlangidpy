@@ -17,5 +17,8 @@
 __author__ = "Impact"
 __date__ = "$30-jul-2015 12:13:01$"
 
-if __name__ == "__main__":
-    print "Hello World"
+import langid
+
+print langid.classify("This is a test")
+
+
