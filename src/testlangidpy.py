@@ -27,12 +27,24 @@ if (len(sys.argv) > 1):
 else:
     print "no parametros"
 
+corrects = 0
+total = 0
+
+langid.set_languages(['es','fr','it','en','pt','ro'])
+
 if (name):
     f = open(name,"r")    
     
     for line in f:        
-        text,lang = line.split(";")        
-        
+        text,lang = line.split(";")
+        lang = lang.strip()
+        total = total + 1
+        ident,conf = langid.classify(text)
+        ident = ident.strip()        
+        if (lang == ident):
+            corrects = corrects + 1
+    
+    print "Aciertos ",corrects,"de",total,"Porcentaje",(float(corrects) / float(total))*100
     
     
 #lang,conf = langid.classify("This is a test")
